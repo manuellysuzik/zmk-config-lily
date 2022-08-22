@@ -24,7 +24,7 @@
             #binding-cells = <1>;
             tapping-term-ms = <80>;
 			bindings = <&kp RSHIFT>, <&kp RCTRL>, <&kp ENTER>;
-			}
+			};
     };
 
 	keymap {
