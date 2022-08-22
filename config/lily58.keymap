@@ -10,13 +10,16 @@
 #include <dt-bindings/zmk/ext_power.h>
 
 / {
-	behaviors {
-		td0: tap_dance_0 {
-		    compatible = "zmk,behavior-tap-dance";
-			label = "TAP_DANCE_0";
-			bindings = <&kp LSHIFT>, <&kp CAPS>;
-			};
-	};
+	 behaviors {
+        td_mt: tap_dance_mod_tap {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_MOD_TAP";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mt LSHIFT CAPSLOCK>, <&kp LCTRL>;
+        };
+    };
+
 	keymap {
 		compatible = "zmk,keymap";
 
