@@ -26,6 +26,12 @@
             tapping-term-ms = <80>;
             bindings = <&kp RSHIFT>, <&kp LCTRL>, <&kp ENTER>;
         };
+
+        rotary_enconder: sensor_rotate_kp {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     macros {
@@ -56,7 +62,7 @@
                             &kp RALT  &kp LGUI  &mo 1   &kp SPACE    &kp ENTER        &mo 2   &kp MINUS  &kp RIGHT_ARROW
             >;
 
-            sensor-bindings = <&inc_dec_kp 0 0 &inc_dec_kp UP DOWN>;
+            sensor-bindings = <&inc_dec_kp 0 0>, <&rotary_enconder UP DOWN>;
         };
 
         lower_layer {
@@ -75,7 +81,9 @@
                                           &trans        &trans        &trans        &trans    &kp DEL           &trans      &trans
             >;
 
-           sensor-bindings = <&inc_dec_kp 0 0 &inc_dec_kp LC(LS(TAB)) LC(TAB)>;
+            sensor-bindings =
+                <&inc_dec_kp 0 0>,
+                <&rotary_enconder C_VOL_UP C_VOL_DN>;
         };
 
         raise_layer {
@@ -94,7 +102,7 @@
                            &trans   &trans   &trans   &trans    &trans  &trans            &trans             &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp 0 0 &inc_dec_kp LC(LS(TAB)) LC(TAB)>;
+            sensor-bindings = <&inc_dec_kp 0 0 &rotary_enconder LC(LS(TAB)) LC(TAB)>;
         };
     };
 };
