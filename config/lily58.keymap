@@ -27,10 +27,11 @@
             bindings = <&kp RSHIFT>, <&kp LCTRL>, <&kp ENTER>;
         };
 
-        rot_kp: sensor_rotate_kp {
+        encoder: rotary {
             compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <2>;
-            bindings = <&inc_dec_kp>, <&inc_dec_kp>;
+            label = "ENCODER";
+            #sensor-binding-cells = <0>;
+            bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
         };
 
     };
@@ -63,7 +64,7 @@
                             &kp RALT  &kp LGUI  &mo 1   &kp SPACE    &kp ENTER        &mo 2   &kp MINUS  &kp RIGHT_ARROW
             >;
 
-            sensor-bindings = <&rot_kp PG_UP PG_DN>;;
+            sensor-bindings = <&new_behavior>;
         };
 
         lower_layer {
@@ -83,7 +84,7 @@
             >;
 
             sensor-bindings =
-                <&rot_kp C_VOL_UP C_VOL_DN>;
+               <&new_behavior>;
         };
 
         raise_layer {
@@ -103,7 +104,7 @@
             >;
 
             sensor-bindings =
-                <&rot_kp LC(LS(TAB)) LC(TAB)>;
+                <&new_behavior>;
         };
     };
 };
