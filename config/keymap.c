@@ -1,6 +1,6 @@
 bool encoder_update_user(uint8_t index, bool clockwise)
 {
-    if (index == 0)
+    if (index == 1)
     { /* First encoder */
         if (clockwise)
         {
