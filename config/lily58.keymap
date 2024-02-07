@@ -26,6 +26,12 @@
             tapping-term-ms = <80>;
             bindings = <&kp RSHIFT>, <&kp LCTRL>, <&kp ENTER>;
         };
+
+        rotary_enconder: sensor_rotate_kp {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     macros {
@@ -56,7 +62,11 @@
                             &kp RALT  &kp LGUI  &mo 1   &kp SPACE    &kp ENTER        &mo 2   &kp MINUS  &kp RIGHT_ARROW
             >;
 
+<<<<<<< HEAD
             sensor-bindings = <&inc_dec_kp UP DOWN>;
+=======
+            sensor-bindings = <&inc_dec_kp 0 0>, <&rotary_enconder UP DOWN>;
+>>>>>>> b0e8966c537c706bd73491cbd06c7de6ff634771
         };
 
         lower_layer {
@@ -75,7 +85,13 @@
                                           &trans        &trans        &trans        &trans    &kp DEL           &trans      &trans
             >;
 
+<<<<<<< HEAD
            sensor-bindings = <&inc_dec_kp LC(LS(TAB)) LC(TAB)>;
+=======
+            sensor-bindings =
+                <&inc_dec_kp 0 0>,
+                <&rotary_enconder C_VOL_UP C_VOL_DN>;
+>>>>>>> b0e8966c537c706bd73491cbd06c7de6ff634771
         };
 
         raise_layer {
@@ -94,7 +110,11 @@
                            &trans   &trans   &trans   &trans    &trans  &trans            &trans             &trans
             >;
 
+<<<<<<< HEAD
             sensor-bindings = <&inc_dec_kp LC(LS(TAB)) LC(TAB)>;
+=======
+            sensor-bindings = <&inc_dec_kp 0 0 &rotary_enconder LC(LS(TAB)) LC(TAB)>;
+>>>>>>> b0e8966c537c706bd73491cbd06c7de6ff634771
         };
     };
 };
